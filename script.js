@@ -21,7 +21,7 @@ client.on("connect", async function () {
 
 document.addEventListener("DOMContentLoaded", function() {
     toggles.forEach((toggle, index) => {
-        toggle.addEventListener("change", function() {
+        toogle1.addEventListener("change", function() {
             const roomStatus = toggle.closest(".controls").querySelector(".status");
             let state1 = toogle1.checked? "ON" : "OFF";
             if (state1=="ON") {
@@ -40,5 +40,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("state1",state1);
             }
             });
+
+        toogle2.addEventListener("change", function() {
+            const roomStatus = toggle.closest(".controls").querySelector(".status");
+            let state2 = toogle2.checked? "ON" : "OFF";
+            if (state2=="ON") {
+                roomStatus.classList.remove("undetected");
+                roomStatus.classList.add("detected");
+                roomStatus.textContent = "PERSON DETECTED";
+                client.publish("Led",state2);
+                console.log("state2",state2);
+            } 
+            else if(state2=="OFF") {
+                roomStatus.classList.remove("detected");
+                roomStatus.classList.add("undetected");
+                roomStatus.textContent = "PERSON UNDETECTED";
+                client.publish("Led",state2);
+                console.log("state2",state2);
+            }
+        });
         });
     });
