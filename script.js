@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     toggles.forEach((toggle, index) => {
         toggle.addEventListener("change", function() {
             const roomStatus = toggle.closest(".controls").querySelector(".status");
-            let state1 = toggle1.checked? "ON" : "OFF";
+            let state1 = toogle1.checked? "ON" : "OFF";
             if (state1=="ON") {
                 roomStatus.classList.remove("undetected");
                 roomStatus.classList.add("detected");
