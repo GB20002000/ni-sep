@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linking to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="header">ENERGY MONITORING</div>
+        <div class="consumption">ENERGY CONSUMING <br><br><strong>3500 mA</strong></div>
+        
+        <div class="room">ROOM 1</div>
+        <div class="controls">
+            <div class="light">LIGHT</div>
+            <label class="power">
+                <input type="checkbox" class="toggle">
+            </label>
+            <div class="fan">FAN</div>
+            <label class="power">
+                <input type="checkbox" class="toggle">
+            </label>
+            <div class="status detected">PERSON DETECTED</div>
+        </div>
+
+        <div class="room">ROOM 2</div>
+        <div class="controls">
+            <div class="light">LIGHT</div>
+            <label class="power">
+                <input type="checkbox" class="toggle">
+            </label>
+            <div class="fan">FAN</div>
+            <label class="power">
+                <input type="checkbox" class="toggle">
+            </label>
+            <div class="status undetected">PERSON UNDETECTED</div>
+        </div>
+
+        <div class="total-unit-container">
+            <div class="total-unit">CONSUMED (Unit)</div>
+            <div class="empty-box">340 kWh</div>
+        </div>
+
+        <div class="total-unit-container">
+            <div class="bill">BILL (Rupee)</div>
+            <div class="empty-box">2.26 ₹</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Linking to the JS file -->
+</body>
+</html>
