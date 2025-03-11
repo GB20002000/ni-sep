@@ -3,7 +3,7 @@ const toogle1= document.getElementById("toogle1");
 const toogle2= document.getElementById("toogle2");
 const toogle3= document.getElementById("toogle3");
 const toogle4= document.getElementById("toogle4");
-
+const sdt=document.getElementById("std");
 
 const broker = "wss://53226e2c2b854db5b2ead0d6a5a8d1f3.s1.eu.hivemq.cloud:8884/mqtt"; 
 const options = {
@@ -20,44 +20,48 @@ client.on("connect", async function () {
 })
 
 document.addEventListener("DOMContentLoaded", function() {
-    toggles.forEach((toggle, index) => {
+    // toggles.forEach((toggle, index) => {
         toogle1.addEventListener("change", function() {
-            const roomStatus = toggle.closest(".controls").querySelector(".status");
+            // const roomStatus = toggle.closest(".controls").querySelector(".status");
             let state1 = toogle1.checked? "ON" : "OFF";
             if (state1=="ON") {
-                roomStatus.classList.remove("undetected");
-                roomStatus.classList.add("detected");
-                roomStatus.textContent = "PERSON DETECTED";
+                // roomStatus.classList.remove("undetected");
+                // roomStatus.classList.add("detected");
+                // roomStatus.textContent = "PERSON DETECTED";
+                sdt.innerText="PERSON DETECTED";
                 client.publish("Led",state1);
                 console.log("state1",state1);
             
             } 
             else if(state1=="OFF") {
-                roomStatus.classList.remove("detected");
-                roomStatus.classList.add("undetected");
-                roomStatus.textContent = "PERSON UNDETECTED";
+                // roomStatus.classList.remove("detected");
+                // roomStatus.classList.add("undetected");
+                // roomStatus.textContent = "PERSON UNDETECTED";
+                sdt.innerText="PERSON UNDETECTED";
                 client.publish("Led",state1);
                 console.log("state1",state1);
             }
             });
 
         toogle2.addEventListener("change", function() {
-            const roomStatus = toggle.closest(".controls").querySelector(".status");
+            // const roomStatus = toggle.closest(".controls").querySelector(".status");
             let state2 = toogle2.checked? "ON" : "OFF";
             if (state2=="ON") {
-                roomStatus.classList.remove("undetected");
-                roomStatus.classList.add("detected");
-                roomStatus.textContent = "PERSON DETECTED";
+                // roomStatus.classList.remove("undetected");
+                // roomStatus.classList.add("detected");
+                // roomStatus.textContent = "PERSON DETECTED";
+                sdt.innerText="PERSON DETECTED";
                 client.publish("Led",state2);
                 console.log("state2",state2);
             } 
             else if(state2=="OFF") {
-                roomStatus.classList.remove("detected");
-                roomStatus.classList.add("undetected");
-                roomStatus.textContent = "PERSON UNDETECTED";
+                // roomStatus.classList.remove("detected");
+                // roomStatus.classList.add("undetected");
+                // roomStatus.textContent = "PERSON UNDETECTED";
+                sdt.innerText="PERSON UNDETECTED";
                 client.publish("Led",state2);
                 console.log("state2",state2);
             }
         });
         });
-    });
+    // });
