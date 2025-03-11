@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // roomStatus.classList.add("detected");
                 // roomStatus.textContent = "PERSON DETECTED";
                 sdt.innerText="PERSON DETECTED";
-                client.publish("Led",state2);
+                client.publish("Led2",state2);
                 console.log("state2",state2);
             } 
             else if(state2=="OFF") {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // roomStatus.classList.add("undetected");
                 // roomStatus.textContent = "PERSON UNDETECTED";
                 sdt.innerText="PERSON UNDETECTED";
-                client.publish("Led",state2);
+                client.publish("Led2",state2);
                 console.log("state2",state2);
             }
         });
