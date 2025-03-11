@@ -3,6 +3,7 @@ const toogle1= document.getElementById("toogle1");
 const toogle2= document.getElementById("toogle2");
 const toogle3= document.getElementById("toogle3");
 const toogle4= document.getElementById("toogle4");
+const count=document.getElementById("count");
 const sdt=document.getElementById("std");
 
 const broker = "wss://53226e2c2b854db5b2ead0d6a5a8d1f3.s1.eu.hivemq.cloud:8884/mqtt"; 
@@ -16,8 +17,32 @@ const client = mqtt.connect(broker, options);
 client.on("connect", async function () {
     console.log("Connected to HiveMQ Cloud");
     // client.subscribe("Led");
-    // client.subscribe("Switch");
+    client.subscribe("Switch");
 })
+client.on("message", (topic, message)=>{
+    const payload =  message.toString();
+    try {
+        const str=decodeJson(payload)
+        switch (topic){
+            case 'Switch':
+                Switch(str)
+                break;
+        }
+    } catch (error) {
+       console.log(payload)   
+       console.error(error)   
+    }
+});
+const decodeJson=(str)=>{
+    try{
+        return JSON.parse(str)
+    }catch(error){
+        return str
+    }
+}
+const Switch=(message)=>{
+     count.innerHTML=`${message.voltage} ${message.Vunit}`
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     // toggles.forEach((toggle, index) => {
