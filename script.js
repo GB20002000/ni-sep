@@ -16,7 +16,6 @@ client.on("connect", () => {
     console.log("Connected to HiveMQ Cloud");
     client.subscribe("Switch");
 });
-
 client.on("message", (topic, message) => {
     try {
         const data = JSON.parse(message.toString());
