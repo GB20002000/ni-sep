@@ -14,6 +14,8 @@ const options = {
     clean: true
 };
 
+
+
 const client = mqtt.connect(broker, options);
 client.on("connect", async function () {
     console.log("Connected to HiveMQ Cloud");
