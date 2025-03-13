@@ -28,7 +28,6 @@ client.on("message", (topic, message) => {
         console.error(error);
     }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     toggles.forEach((toggle, index) => {
         toggle.addEventListener("change", function () {
