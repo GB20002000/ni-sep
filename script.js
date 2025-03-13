@@ -13,6 +13,7 @@ const options = {
     password: "123456789Gb@", 
     clean: true
 };
+
 const client = mqtt.connect(broker, options);
 client.on("connect", async function () {
     console.log("Connected to HiveMQ Cloud");
