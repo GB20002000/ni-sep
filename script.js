@@ -4,6 +4,8 @@ const toogle2= document.getElementById("toogle2");
 const toogle3= document.getElementById("toogle3");
 const toogle4= document.getElementById("toogle4");
 const count=document.getElementById("count");
+const ucount=document.getElementById("ucount");
+const billcount=document.getElementById("billcount");
 const sdt=document.getElementById("std");
 
 const broker = "wss://53226e2c2b854db5b2ead0d6a5a8d1f3.s1.eu.hivemq.cloud:8884/mqtt"; 
@@ -53,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 // roomStatus.classList.remove("undetected");
                 // roomStatus.classList.add("detected");
                 // roomStatus.textContent = "PERSON DETECTED";
-                sdt.innerText="PERSON DETECTED";
-                client.publish("Led",state1);
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led1",state1);
                 console.log("state1",state1);
             
             } 
@@ -63,29 +65,52 @@ document.addEventListener("DOMContentLoaded", function() {
                 // roomStatus.classList.add("undetected");
                 // roomStatus.textContent = "PERSON UNDETECTED";
                 sdt.innerText="PERSON UNDETECTED";
-                client.publish("Led",state1);
+                client.publish("Led1",state1);
                 console.log("state1",state1);
             }
             });
 
         toogle2.addEventListener("change", function() {
-            // const roomStatus = toggle.closest(".controls").querySelector(".status");
             let state2 = toogle2.checked? "ON" : "OFF";
             if (state2=="ON") {
-                // roomStatus.classList.remove("undetected");
-                // roomStatus.classList.add("detected");
-                // roomStatus.textContent = "PERSON DETECTED";
-                sdt.innerText="PERSON DETECTED";
-                client.publish("Led2",state2);
-                console.log("state2",state2);
-            } 
-            else if(state2=="OFF") {
-                // roomStatus.classList.remove("detected");
-                // roomStatus.classList.add("undetected");
-                // roomStatus.textContent = "PERSON UNDETECTED";
                 sdt.innerText="PERSON UNDETECTED";
                 client.publish("Led2",state2);
                 console.log("state2",state2);
+                
+            } 
+            else if(state2=="OFF") {
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led2",state2);
+                console.log("state2",state2);
+                }
+            });
+
+        toogle3.addEventListener("change", function() {
+            let state3 = toogle3.checked? "ON" : "OFF";
+            if (state3=="ON") {
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led3",state3);
+                console.log("state3",state3);
+                    
+            } 
+            else if(state3=="OFF") {
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led3",state3);
+                console.log("state3",state3);
+                    }
+            });
+
+        toogle4.addEventListener("change", function() {
+            let state4 = toogle4.checked? "ON" : "OFF";
+            if (state4=="ON") {
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led2",state4);
+                console.log("state4",state4);
+            } 
+            else if(state4=="OFF") {
+                sdt.innerText="PERSON UNDETECTED";
+                client.publish("Led4",state4);
+                console.log("state4",state4);
             }
         });
         });
