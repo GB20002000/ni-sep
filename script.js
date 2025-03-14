@@ -44,15 +44,15 @@ client.on("message", (topic, message) => {
         else if(topic ==="Alert1")
         {   
             if(data3.voltage ===1)
-            {
-                room1.innerHTML="Person Dected";
-                room1.style.backgroundColor="blue"
-            }
-            else if(data3.voltage ===0)
-            {
-                room1.innerHTML="Person UNDected";
-                room1.style.backgroundColor="red";
-            }
+                {
+                    room1.innerHTML="Person Dected";
+                    room1.style.backgroundColor="blue"
+                }
+                else if(data3.voltage ===0)
+                    {
+                        room1.innerHTML="Person UNDected";
+                        room1.style.backgroundColor="red";
+                    }
 
             
         }
