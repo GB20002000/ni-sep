@@ -46,7 +46,8 @@ client.on("message", (topic, message) => {
             if(data3.voltage ===1)
                 {
                     room1.innerHTML="Person Dected";
-                    room1.style.backgroundColor="blue"
+                    room1.style.backgroundColor="blue";
+                    alert("Person detected in Room1");
                 }
                 else if(data3.voltage ===0)
                     {
@@ -62,6 +63,7 @@ client.on("message", (topic, message) => {
                 {
                     room2.innerHTML="Person Dected";
                     room2.style.backgroundColor="blue";
+                    alert("Person detected in Room2");
                 }
                 else if(data4.voltage ===0)
                 {
