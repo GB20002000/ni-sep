@@ -5,11 +5,11 @@ const ucount =document.getElementById("ucount");
 const billcount= document.getElementById("billcount");
 const room2=document.getElementById("room2");
 
-const broker = "wss://53226e2c2b854db5b2ead0d6a5a8d1f3.s1.eu.hivemq.cloud:8884/mqtt";
+const broker = "wss://1fae4ab464e64fe9be19c16c1101c1be.s1.eu.hivemq.cloud:8884/mqtt";
 const options = {
     clientId: "web_" + crypto.randomUUID(),
     username: "Check",
-    password: "123456789Gb@",
+    password: "2025Black",
     clean: true
 };
 
