@@ -4,6 +4,12 @@ const room1 = document.getElementById("room1");
 const ucount =document.getElementById("ucount");
 const billcount= document.getElementById("billcount");
 const room2=document.getElementById("room2");
+const Set_Value_Element = document.getElementById("Set_Value");
+const storedLastName = localStorage.getItem("lastname");
+
+if (storedLastName) {
+  Set_Value_Element.innerText = storedLastName;
+}
 
 const broker = "wss://1fae4ab464e64fe9be19c16c1101c1be.s1.eu.hivemq.cloud:8884/mqtt";
 const options = {
@@ -78,6 +84,7 @@ client.on("message", (topic, message) => {
         console.error(error);
     }
 });
+client.publish("seet_value",storedLastName);
 document.addEventListener("DOMContentLoaded", function () {
     toggles.forEach((toggle, index) => {
         toggle.addEventListener("change", function () {
@@ -86,4 +93,5 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`Led${index + 1} State:`, state);
         });
     });
+
 });
